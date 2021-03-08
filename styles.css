@@ -1,0 +1,30 @@
+
+
+.color-item
+{
+    width:50px;
+    height:50px;
+    margin:5px;
+    border-radius:50%;
+    border:1px solid transparent;
+}
+
+.color-item:hover, .selected-color
+{
+    border:3px solid black;
+    cursor:pointer;
+}
+
+
+#color_save_button_wrap
+{
+    display:none
+}
+
+
+/* mini menu e.g. academic years  */
+.imperial-mini-menu
+{
+
+
+}
