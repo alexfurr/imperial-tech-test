@@ -59,22 +59,28 @@ class init
             $fav_color = 'Not yet saved';
         }
 
+        $fav_film = get_user_option( 'my_favourite_film', get_current_user_id() );
+
+        if(!$fav_film)
+        {
+            $fav_film = 'Not yet saved';
+        }
+
         $html.='<h3>Please select your favourite colour</h3>';
 
-        $html.='<p>Color : '.$fav_color.'</p>';
+        $html.='<p >Color : <span class="current_film">'.$fav_color.'</span></p>';
+        $html.='<p >Film : <span class="current_color">'.$fav_film.'</span></p>';
 
-        $color_options = $this->get_colors();
+        $color_options = self::get_colors();
         $html.='<div class="color-picker-wrap">';
         foreach ($color_options as $this_color)
         {
-            $html.='<div class="color-item" data-color="'.$this_color.'" style="background:'.$this_color.'"></div>';
+            $html.='<div class="color-item '.(($fav_color==$this_color)?'selected-color':'').'" data-color="'.$this_color.'" style="background:'.$this_color.'"></div>';
         }
         $html.='</div>';
 
         // Have hidden input of the last button that was clicked
         $html.='<input type="hidden" id="last_clicked_color" value="'.$fav_color.'" />';
-
-
 
         // The input for the film
         $html.='<h3>Please enter your favourite film</h3>';
@@ -96,7 +102,7 @@ class init
 
     }
 
-    function get_colors()
+    static function get_colors()
     {
         $colors = array(
             "red",

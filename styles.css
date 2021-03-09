@@ -21,6 +21,10 @@
     display:none
 }
 
+.color-picker-wrap .color-item{
+    float: left;
+}
+
 
 /* mini menu e.g. academic years  */
 .imperial-mini-menu
